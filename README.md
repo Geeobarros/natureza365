@@ -6,3 +6,9 @@ O Natureza365 é uma plataforma que permite aos usuários explorar e contribuir 
 npm i
 local: npm i --dev
 Alterar as informações do: .env
+
+
+SEQUELIZE
+
+
+
