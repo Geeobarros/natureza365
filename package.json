@@ -1,0 +1,28 @@
+{
+  "name": "natureza365",
+  "version": "1.0.0",
+  "description": "O Natureza365 é uma plataforma que permite aos usuários explorar e contribuir para a preservação da natureza, fornecendo acesso a informações sobre áreas naturais, trilhas, parques ecológicos, reservas ambientais e outros locais de interesse para os amantes da natureza.",
+  "main": "app.js",
+  "scripts": {
+    "test": "nodemon ./src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Geeobarros/natureza365.git"
+  },
+  "keywords": [
+    "back",
+    "end",
+    "api",
+    "rest",
+    "natureza",
+    "trilhas",
+    "locais"
+  ],
+  "author": "Geovanna Barros",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Geeobarros/natureza365/issues"
+  },
+  "homepage": "https://github.com/Geeobarros/natureza365#readme"
+}
