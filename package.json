@@ -26,14 +26,10 @@
   },
   "homepage": "https://github.com/Geeobarros/natureza365#readme",
   "dependencies": {
-<<<<<<< HEAD
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "pg": "^8.11.5",
-=======
-    "express": "^4.19.2",
->>>>>>> 0c1554665c5bcc7019ba6aa3c9149c4e263ab03f
     "sequelize": "^6.37.3",
     "yup": "^1.4.0"
   }
