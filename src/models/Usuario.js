@@ -8,10 +8,6 @@ const Usuario = connection.define('usuarios', {
         type: DataTypes.STRING,
         allowNull: false
     }, 
-    sobrenome: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
     data_nascimento: {
         type: DataTypes.DATE
     },
