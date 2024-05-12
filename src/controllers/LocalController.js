@@ -6,7 +6,7 @@ class LocalController {
   async cadastrar_local(req, res){
     console.log(req.body)
    try {
-        const { nome_local, descricao, localidade, coord_geo } = req.body;
+        const { nome_local, descricao, localidade,} = req.body;
         const cep = req.body.cep
         
         const resposta = await coordenadas(cep)
