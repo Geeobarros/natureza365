@@ -7,6 +7,10 @@ const Local = connection.define('locais', {
         type: DataTypes.STRING,
         allowNull: false
     },
+    usuario_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
     descricao: {
         type: DataTypes.STRING,
         allowNull: false
@@ -15,10 +19,15 @@ const Local = connection.define('locais', {
         type: DataTypes.STRING,
         allowNull: false
     },
-    coord_geo: {
-        type: DataTypes.STRING,
-        allowNull: false
+    cep: {
+        type: DataTypes.STRING
+    },
+    latitude: {
+        type: DataTypes.STRING
+    },
+    longitude: {
+        type: DataTypes.STRING
     }
 })
 
-module.exports = Local
+module.exports = Local;
