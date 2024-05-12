@@ -1,16 +1,14 @@
 const { Router } = require("express");
-
 const UsuarioController = require("../controllers/UsuarioController");
 const { auth } = require("../middleware/auth");
+const usuarioRoutes = new Router();
 
-const usuarioRoutes = new Router()
+usuarioRoutes.post('/', UsuarioController.cadastrar);
 
-usuarioRoutes.post('/', UsuarioController.cadastrar)
+usuarioRoutes.get("/", UsuarioController.listar);
 
-usuarioRoutes.get("/", UsuarioController.listar)
+usuarioRoutes.put('/:id', auth, UsuarioController.atualizar);
 
-usuarioRoutes.put('/:id', auth, UsuarioController.atualizar)
-
-usuarioRoutes.delete('/:id', auth, UsuarioController.deletar)
+usuarioRoutes.delete('/:id', auth, UsuarioController.deletar);
 
 module.exports = usuarioRoutes

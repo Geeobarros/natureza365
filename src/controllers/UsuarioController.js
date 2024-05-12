@@ -81,4 +81,99 @@ class UsuarioController {
           res.status(500).json({ error: "Não foi possível cadastrar o usuário" });
         }
       }
+
+      async listar(req, res) {
+        /*  
+            #swagger.tags = ['Usuario'].
+                description: 'Lista os usuários',
+        #swagger.responses[200] = {description: "OK"}
+        #swagger.responses[500] = {description: "Erro no servidor"}
+    */
+    const usuario = await Usuario.findAll();
+    res.json({ usuario });
+  }
+
+  async atualizar(req, res) {
+    try { 
+      /*  
+            #swagger.tags = ['Usuario'].
+            #swagger.parameters['usuario_id'] = {
+                in: 'body',
+                description: 'Cadastra um novo usuário',
+                schema: {
+                    $nome: 'Ana',
+                    $data_nascimento: '1996-12-15',
+                    $sexo: 'Feminino',
+                    $cpf:  '123.456.789-10',
+                    $cep: '12345-678',
+                    endereco: " ",
+                    $email: 'usuario@email.com',
+                    $senha: "123456"               
+                }
+        }
+        #swagger.responses[201] = {description: "Usuário cadastrado com sucesso"}
+        #swagger.responses[400] = {description: "Algum dado incorreto ou faltando"}
+        #swagger.responses[500] = {description: "Erro no servidor"}
+    */
+      const usuario_id = req.usuario_id; // JWT
+      const id = req.params.id;
+
+      // Verifique se o usuário existe
+      const usuario = await Usuario.findByPk(usuario_id);
+      if (!usuario) {
+        return res.status(404).json({ mensagem: "Usuário não encontrado" });
+      }
+
+      // Verifique se o usuário tem permissão para atualizar
+      if (usuario.id !== usuario_id) {
+        return res.status(403).json({ mensagem: "Acesso proibido" });
+      }
+
+      // Atualize os campos do usuário com base no corpo da requisição
+      usuario.update(req.body);
+      await usuario.save();
+
+      // Responda com o usuário atualizado
+      res.json(usuario);
+    } catch (error) {
+      console.error("Erro ao atualizar usuário:", error.message);
+      res
+        .status(500)
+        .json({ mensagem: "Não foi possível atualizar o usuário" });
+    }
+  }
+
+  async deletar(req, res) {
+    try {
+      const usuario_id = req.usuario_id; // JWT
+      const id = req.params.id;
+
+      const usuario = await Usuario.findByPk(usuario_id);
+      if (!usuario) {
+        return res.status(404).json({ mensagem: "Usuário não encontrado" });
+      }
+      if (usuario.id !== usuario_id) {
+        return res.status(403).json({ mensagem: "Acesso proibido" });
+      }
+
+      const locaisVinculados = await Local.findAll({
+        where: { id: usuario_id },
+      });
+      if (locaisVinculados.length > 0) {
+        return res.status(403).json({
+          mensagem:
+            "Não é possível excluir. Locais vinculados ao usuário encontrados.",
+        });
+      }
+
+      await usuario.destroy();
+
+      res.json({ mensagem: "Usuário excluído com sucesso" });
+    } catch (error) {
+      console.error("Erro ao excluir usuário:", error);
+      res.status(500).json({ mensagem: "Não foi possível deletar o usuário" });
+    }
+  }
 }
+
+module.exports = new UsuarioController();
