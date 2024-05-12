@@ -1,6 +1,5 @@
 'use strict';
 
-
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
@@ -12,10 +11,18 @@ module.exports = {
       autoIncrement: true,
       primaryKey: true,
     },
-    nome: {
+    nome_local: {
       type: Sequelize.STRING,
       allowNull: false
     },
+    usuario_id: {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'usuarios',
+        key: 'id'
+      }
+},
     descricao: {
       type: Sequelize.STRING,
       allowNull: false
@@ -24,9 +31,15 @@ module.exports = {
       type: Sequelize.STRING,
       allowNull: false
     },
-    coord_geo: {
-      type: Sequelize.STRING,
+    cep: {
+      type: Sequelize.STRING(9),
       allowNull: false
+    },
+    latitude: {
+      type: Sequelize.STRING
+    },
+    longitude: {
+      type: Sequelize.STRING
     }
     });
     
