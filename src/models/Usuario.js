@@ -16,7 +16,7 @@ const Usuario = connection.define('usuarios', {
         'Masculino', 'Outros'), 
         allowNull: false
     }, 
-    CPF: {
+    cpf: {
         type: DataTypes.STRING,
         unique: true,
         allowNull: false,
@@ -25,9 +25,16 @@ const Usuario = connection.define('usuarios', {
             len: [11, 11]
         }
     }, 
+    cep: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            len: [9, 9]
+        }
+    },
     endereço: {
         type: DataTypes.STRING,
-        allowNull: false
+        
     },
     email: {
         type: DataTypes.STRING,
