@@ -13,5 +13,18 @@ try{
         console.error('Erro ao buscar o endereço:', error);
         throw new Error('Erro ao processar a solicitação')
     }
-
 }
+
+async function Map(cep) {
+    try {
+      const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
+      const { logradouro, bairro, uf } = response.data;
+      const endereco = `${logradouro}, ${bairro}, ${uf}`;
+      return endereco
+    } catch (error) {
+      console.error('Erro ao buscar o endereço:', error);
+    }
+  }
+
+
+module.exports = { Map, coordenadas };
