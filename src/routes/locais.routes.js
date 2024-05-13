@@ -1,5 +1,9 @@
+const { Router } = require("express");
 const { auth } = require("../middleware/auth");
 const LocalController = require("../controllers/LocalController");
+
+
+const locaisRoutes = new Router();
 
 locaisRoutes.post("/", auth, LocalController.cadastrar_local);
 
