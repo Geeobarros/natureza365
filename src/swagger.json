@@ -51,7 +51,7 @@
                 },
                 "cep": {
                   "type": "string",
-                  "example": "12345-678"
+                  "example": "88058-700"
                 },
                 "latitude": {
                   "type": "string",
