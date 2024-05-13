@@ -5,25 +5,25 @@ const { error } = require("console");
 
 class UsuarioController {
   async cadastrar(req, res) {
-    /*  
-          #swagger.tags = ['Usuario'].
-          #swagger.parameters['body'] = {
-                    in: 'body',
-                    description: 'Cadastra um novo usuário',
-                    schema: {
-                        $nome: 'Ana',
-                        $data_nascimento: '1996-12-15',
-                        $sexo: 'Feminino',
-                        $cpf:  '123.456.789-10',
-                        $cep: '01001-000',
-                        endereco: " ",
-                        $email: 'usuario@email.com',
-                        $senha: "123456"               
-                    }
-            }
-            #swagger.responses[201] = {description: "Usuário cadastrado com sucesso"}
-            #swagger.responses[400] = {description: "Algum dado incorreto ou faltando"}
-            #swagger.responses[500] = {description: "Erro no servidor"}
+  /**
+   * #swagger.tags = ['Usuario'].
+            #swagger.parameters['body'] = {                
+                in: 'body',
+                description: 'Cadastra um novo usuário',
+                schema: {
+                    $nome: 'Ana',
+                    $data_nascimento: '1996-12-15',
+                    $sexo: 'Feminino',
+                    $cpf:  '123.456.789-10',
+                    $cep: '12345-678',
+                    endereco: " ",
+                    $email: 'usuario@email.com',
+                    $senha: "123456"               
+                }
+        }
+   * #swagger.responses[201] = {description: "Usuário cadastrado com sucesso"}
+   * #swagger.responses[400] = {description: "Algum dado incorreto ou faltando"}
+   * #swagger.responses[500] = {description: "Erro no servidor"}
   */
     try {
       const { nome, data_nascimento, sexo, cpf, email, senha } = req.body;
@@ -87,35 +87,38 @@ class UsuarioController {
   }
 
   async listar(req, res) {
-    /*  
-            #swagger.tags = ['Usuario'].
-                description: 'Lista os usuários',
-        #swagger.responses[200] = {description: "OK"}
-        #swagger.responses[500] = {description: "Erro no servidor"}
+    /**
+     * #swagger.tags = ['Usuario'].
+     * description: 'Lista os usuários',
+     * #swagger.responses[200] = {description: "OK"}
+     * #swagger.responses[500] = {description: "Algo inesperado aconteceu"}
     */
     const usuario = await Usuario.findAll();
     res.json({ usuario });
   }
 
   async atualizar(req, res) {
-    /*  
-    #swagger.tags = ['Usuario'].
-    #swagger.parameters['body'] = { in: 'body', description: 'insira os dados que irá atualizar'}
-  }
-  schema: {
-                        $nome: '',
-                        $data_nascimento: '2000-01-01,
-                        $sexo: 'Feminino, Masculino, Outros',
-                        $cpf:  '123.456.789-10',
-                        $cep: '01001-000',
-                        endereco: " ",
-                        $email: 'usuario@email.com',
-                        $senha: "123456"               
-                      }
-                      #swagger.responses[200] = {description: "OK"}
-                      #swagger.responses[404] = {description: "Usuário não encontrado"}
-                      #swagger.responses[500] = {description: "Algo inesperado aconteceu"}
-                      */
+    /**
+     *     #swagger.tags = ['Usuario'].
+            #swagger.parameters['body'] = {                
+                in: 'body',
+                description: 'atualiza um usuário',
+                schema: {
+                    $nome: 'Ana',
+                    $data_nascimento: '1996-12-15',
+                    $sexo: 'Feminino',
+                    $cpf:  '123.456.789-10',
+                    $cep: '12345-678',
+                    endereco: " ",
+                    $email: 'usuario@email.com',
+                    $senha: "123456"               
+                }
+        }
+     * #swagger.responses[200] = {description: "OK"}
+     *  swagger.responses[404] = {description: "Usuário não encontrado"}
+     * #swagger.responses[500] = {description: "Algo inesperado aconteceu"}
+                       
+    */
     try {
       const usuario_id = req.usuario_id;
       const id = req.params.id;
@@ -143,17 +146,12 @@ class UsuarioController {
   }
 
   async deletar(req, res) {
-    /*  
-            #swagger.tags = ['Usuario'].
-            #swagger.parameters['id'] = {
-                in: 'path',
-                description: 'Deleta um usuário',
-               
-        }
-        #swagger.responses[204] = {description: "OK"}
-        #swagger.responses[403] = {description: "Não autorizado"}
-        #swagger.responses[404] = {description: "Usuário não encontrado"}
-        #swagger.responses[500] = {description: "Erro no servidor"}
+    /**
+     * #swagger.tags = ['Usuario'].
+     * #swagger.responses[204] = {description: "OK"}
+     * #swagger.responses[403] = {description: "Não autorizado"}
+     * #swagger.responses[404] = {description: "Usuário não encontrado"}
+     * #swagger.responses[500] = {description: "Algo inesperado aconteceu"}
     */
     try {
       const usuario_id = req.usuario_id; // JWT

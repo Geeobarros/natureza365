@@ -33,7 +33,7 @@
           {
             "name": "body",
             "in": "body",
-            "description": "Cadastra um novo usuário",
+            "description": "Cadastra um novo local",
             "schema": {
               "type": "object",
               "properties": {
@@ -137,7 +137,7 @@
             "description": "OK"
           },
           "403": {
-            "description": "Acesso não autorizado"
+            "description": "Forbidden"
           },
           "404": {
             "description": "Local não encontrado"
@@ -162,13 +162,6 @@
           {
             "name": "authorization",
             "in": "header",
-            "type": "string"
-          },
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Deleta um local",
-            "required": true,
             "type": "string"
           }
         ],
@@ -207,39 +200,34 @@
           {
             "name": "body",
             "in": "body",
-            "description": "Atualiza informações do local",
+            "description": "atualiza informações de um local",
             "schema": {
               "type": "object",
               "properties": {
                 "nome_local": {
                   "type": "string",
-                  "example": "Museu arqueológico a céu aberto"
+                  "example": "Trilha"
                 },
-                "descricao": {
+                "descrição": {
                   "type": "string",
-                  "example": "Lado direito da praia do Santinho"
-                },
-                "localidade": {
-                  "type": "string",
-                  "example": "Santinho"
+                  "example": "Praia"
                 },
                 "cep": {
                   "type": "string",
-                  "example": "12345-678"
+                  "example": ""
                 },
                 "latitude": {
                   "type": "string",
-                  "example": ""
+                  "example": "123.456.789-10"
                 },
                 "longitude": {
                   "type": "string",
-                  "example": ""
+                  "example": "12345-678"
                 }
               },
               "required": [
                 "nome_local",
-                "descricao",
-                "localidade"
+                "descrição"
               ]
             }
           }
@@ -291,6 +279,9 @@
           },
           "404": {
             "description": "Local não encontrado"
+          },
+          "500": {
+            "description": "Algo inesperado ocorreu: Não foi possível gerar o link"
           }
         }
       }
@@ -370,7 +361,7 @@
                 },
                 "cep": {
                   "type": "string",
-                  "example": "01001-000"
+                  "example": "12345-678"
                 },
                 "endereco": {
                   "type": "string",
@@ -419,7 +410,7 @@
             "description": "OK"
           },
           "500": {
-            "description": "Erro no servidor"
+            "description": "Algo inesperado aconteceu"
           }
         }
       }
@@ -445,16 +436,67 @@
           {
             "name": "body",
             "in": "body",
-            "description": "insira os dados que irá atualizar",
+            "description": "atualiza um usuário",
             "schema": {
               "type": "object",
-              "properties": {}
+              "properties": {
+                "nome": {
+                  "type": "string",
+                  "example": "Ana"
+                },
+                "data_nascimento": {
+                  "type": "string",
+                  "example": "1996-12-15"
+                },
+                "sexo": {
+                  "type": "string",
+                  "example": "Feminino"
+                },
+                "cpf": {
+                  "type": "string",
+                  "example": "123.456.789-10"
+                },
+                "cep": {
+                  "type": "string",
+                  "example": "12345-678"
+                },
+                "endereco": {
+                  "type": "string",
+                  "example": " "
+                },
+                "email": {
+                  "type": "string",
+                  "example": "usuario@email.com"
+                },
+                "senha": {
+                  "type": "string",
+                  "example": "123456"
+                }
+              },
+              "required": [
+                "nome",
+                "data_nascimento",
+                "sexo",
+                "cpf",
+                "cep",
+                "email",
+                "senha"
+              ]
             }
           }
         ],
         "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
           "404": {
             "description": "Not Found"
+          },
+          "500": {
+            "description": "Algo inesperado aconteceu"
           }
         }
       },
@@ -468,8 +510,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string",
-            "description": "Deleta um usuário"
+            "type": "string"
           },
           {
             "name": "authorization",
@@ -488,7 +529,7 @@
             "description": "Usuário não encontrado"
           },
           "500": {
-            "description": "Erro no servidor"
+            "description": "Algo inesperado aconteceu"
           }
         }
       }

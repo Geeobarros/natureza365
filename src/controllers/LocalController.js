@@ -4,24 +4,24 @@ const { coordenadas } = require("../services/map.service");
 
 class LocalController {
   async cadastrar_local(req, res) {
-    /*  
-          #swagger.tags = ['Local'].
-          #swagger.parameters['body'] = {
-                    in: 'body',
-                    description: 'Cadastra um novo usuário',
-                    schema: {
-                      $nome_local: "Museu arqueológico a céu aberto",
-                      $descricao: "Lado direito da praia do Santinho",
-                      $localidade: "Santinho",
-                      cep: "88058-700",
-                      latitude: "",                      
-                      longitude: ""           
-                    }
-            }
-            #swagger.responses[201] = {description: "Usuário cadastrado com sucesso"}
-            #swagger.responses[400] = {description: "Algum dado incorreto ou faltando"}
-            #swagger.responses[500] = {description: "Erro no servidor"}
-  */
+    /** 
+    *     #swagger.tags = ['Local'].
+            #swagger.parameters['body'] = {                
+                in: 'body',
+                description: 'Cadastra um novo local',
+                schema: {
+                    $nome_local: "Museu arqueológico a céu aberto",
+                    $descricao: "Lado direito da praia do Santinho",
+                    $localidade: "Santinho",
+                    cep: "88058-700",
+                    latitude: "", 
+                    longitude: ""               
+                }
+        }
+        * #swagger.responses[201] = {description: "Usuário cadastrado com sucesso"}
+        * #swagger.responses[400] = {description: "Algum dado incorreto ou faltando"}
+        * #swagger.responses[500] = {description: "Erro no servidor"}
+    */
     console.log(req.body);
     try {
       const { nome_local, descricao, localidade, } = req.body;
@@ -57,10 +57,10 @@ class LocalController {
 
   async listarLocais(req, res) {
      /*  
-            #swagger.tags = ['Local'].
-                description: 'Lista os locais',
-        #swagger.responses[200] = {description: "OK"}
-        #swagger.responses[500] = {description: "Erro no servidor"}
+      * #swagger.tags = ['Local'].
+      * description: 'Lista os locais',
+      * #swagger.responses[200] = {description: "OK"}
+      * #swagger.responses[500] = {description: "Erro no servidor"}
     */
     try {
       const usuario_id = req.usuario_id;
@@ -81,13 +81,10 @@ class LocalController {
   async listarUmLocal(req, res) {
 
       /*  
-            #swagger.tags = ['Local'].
-             #swagger.parameters['id'] = {
-                in: 'path',
-                description: 'Lista um local por ID',
-        #swagger.responses[200] = {description: "OK"}
-        #swagger.responses[404] = {description: "Local não encontrado"}
-        #swagger.responses[500] = {description: "Erro no servidor"}
+      *  #swagger.tags = ['Local'].
+        * #swagger.responses[200] = {description: "OK"}
+        * #swagger.responses[404] = {description: "Local não encontrado"}
+        * #swagger.responses[500] = {description: "Erro no servidor"}
     */
     try {
       const usuario_id = req.usuario_id;
@@ -108,19 +105,14 @@ class LocalController {
     }
   }
   async gerarLinkGoogle(req, res) {
-    /*  
-            #swagger.tags = ['Local'].
-             #swagger.parameters['id'] = {
-                in: 'path',
-                description: 'Gera um link no Google Mapa da localização do local pelo ID informado',
-              #swagger.parameters['maps'] = {
-                in: 
-              }
-        #swagger.responses[200] = {description: "OK"}
-        #swagger.responses[403] = {description: "Acesso não autorizado"}        
-        #swagger.responses[404] = {description: "Local não encontrado"}
-        #swagger.responses[500] = {description: "Algo inesperado ocorreu: Não foi possível gerar o link""}
-    */
+    /*
+     * #swagger.tags = ['Local'].
+     * #swagger.responses[200] = {description: "OK"}
+     * #swagger.responses[403] = {description: "Acesso não autorizado"}
+     * #swagger.responses[404] = {description: "Local não encontrado"}
+     * #swagger.responses[500] = {description: "Algo inesperado ocorreu: Não foi possível gerar o link"}
+     */
+    
     try {
       const usuario_id = req.usuario_id;
       const local_id = req.params.local_id;
@@ -146,24 +138,24 @@ class LocalController {
   }
 
   async atualizarLocal(req, res) {
-    /*  
-          #swagger.tags = ['Local'].
-          #swagger.parameters['body'] = {
-                    in: 'body',
-                    description: 'Atualiza informações do local',
-                    schema: {
-                      $nome_local: "Museu arqueológico a céu aberto",
-                      $descricao: "Lado direito da praia do Santinho",
-                      $localidade: "Santinho",
-                      cep: "12345-678",
-                      latitude: "",                      longitude: ""           
-                    }
-            }
-            #swagger.responses[201] = {description: "Local atualizado com sucesso"}
-            #swagger.responses[403] = {description: "Acesso proibido"}
-            #swagger.responses[404] = {description: "ID do local não encontrado"}
-            #swagger.responses[500] = {description: "Algo inesperado ocorreu: Não foi possível atualizar as informações do local"}
-  */
+  /*
+     #swagger.tags = ['Local'].
+            #swagger.parameters['body'] = {                
+                in: 'body',
+                description: 'atualiza informações de um local',
+                schema: {
+                    $nome_local: 'Trilha',
+                    $descrição: 'Praia',
+                    cep: '',
+                    latitude:  '123.456.789-10',
+                    longitude: '12345-678'               
+                }
+        }
+     * #swagger.responses[201] = {description: "Local atualizado com sucesso"}
+     * #swagger.responses[403] = {description: "Acesso proibido"}
+     * #swagger.responses[404] = {description: "ID do local não encontrado"}
+     * #swagger.responses[500] = {description: "Algo inesperado ocorreu: Não foi possível atualizar as informações do local"} 
+     * */ 
     try {
       const usuario_id = req.usuario_id;
       const local_id = req.params.local_id;
@@ -183,24 +175,18 @@ class LocalController {
 
       res.json(local);
     } catch (error) {
-      res
-      .status(500)
-      .json({ mensagem: "Algo inesperado ocorreu: Não foi possível atualizar as informações do local" });
+      console.log(error.message)
+      res.status(500).json({ mensagem: "Algo inesperado ocorreu: Não foi possível atualizar as informações do local" });
     }
   }
 
   async deletarLocal(req, res) {
-    /*  
-            #swagger.tags = ['Local'].
-            #swagger.parameters['id'] = {
-                in: 'path',
-                description: 'Deleta um local',
-               
-        }
-        #swagger.responses[204] = {description: "O local foi Deletado"}
-        #swagger.responses[403] = {description: "Acesso proibido"}
-        #swagger.responses[404] = {description: "Local não encontrado"}
-        #swagger.responses[500] = {description: "Erro no servidor"}
+    /**
+     * #swagger.tags = ['Local'].
+     * #swagger.responses[204] = {description: "O local foi Deletado"}
+     * #swagger.responses[403] = {description: "Acesso proibido"}
+     * #swagger.responses[404] = {description: "Local não encontrado"}
+     * #swagger.responses[500] = {description: "Erro no servidor"}             
     */
     try {
       const usuario_id = req.usuario_id;
