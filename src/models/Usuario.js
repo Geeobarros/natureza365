@@ -9,7 +9,8 @@ const Usuario = connection.define('usuarios', {
         allowNull: false
     }, 
     data_nascimento: {
-        type: DataTypes.DATE
+        type: DataTypes.DATE,
+        allowNull: false
     },
     sexo: {
         type: DataTypes.ENUM('Feminino',
@@ -21,8 +22,7 @@ const Usuario = connection.define('usuarios', {
         unique: true,
         allowNull: false,
         validate: {
-            isNumeric: true,
-            len: [11, 11]
+            len: [14, 14]
         }
     }, 
     cep: {
@@ -32,7 +32,7 @@ const Usuario = connection.define('usuarios', {
             len: [9, 9]
         }
     },
-    endereço: {
+    endereco: {
         type: DataTypes.STRING,
         
     },

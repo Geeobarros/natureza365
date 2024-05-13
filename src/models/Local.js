@@ -20,7 +20,10 @@ const Local = connection.define('locais', {
         allowNull: false
     },
     cep: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        validate: {
+            len: [9, 9]
+        }
     },
     latitude: {
         type: DataTypes.STRING
