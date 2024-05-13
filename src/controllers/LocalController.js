@@ -113,6 +113,9 @@ class LocalController {
              #swagger.parameters['id'] = {
                 in: 'path',
                 description: 'Gera um link no Google Mapa da localização do local pelo ID informado',
+              #swagger.parameters['maps'] = {
+                in: 
+              }
         #swagger.responses[200] = {description: "OK"}
         #swagger.responses[403] = {description: "Acesso não autorizado"}        
         #swagger.responses[404] = {description: "Local não encontrado"}
