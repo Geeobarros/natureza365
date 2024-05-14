@@ -101,8 +101,8 @@
           "200": {
             "description": "OK"
           },
-          "401": {
-            "description": "Unauthorized"
+          "403": {
+            "description": "Não autorizado"
           },
           "404": {
             "description": "Not Found"
@@ -137,7 +137,7 @@
             "description": "OK"
           },
           "403": {
-            "description": "Forbidden"
+            "description": "Não autorizado"
           },
           "404": {
             "description": "Local não encontrado"
@@ -361,7 +361,7 @@
                 },
                 "cep": {
                   "type": "string",
-                  "example": "12345-678"
+                  "example": "01001-000"
                 },
                 "endereco": {
                   "type": "string",
@@ -369,7 +369,7 @@
                 },
                 "email": {
                   "type": "string",
-                  "example": "usuario@email.com"
+                  "example": "ana@email.com"
                 },
                 "senha": {
                   "type": "string",
@@ -413,11 +413,11 @@
           }
         ],
         "responses": {
-          "20": {
-            "description": "Não autorizado"
-          },
           "200": {
             "description": "OK"
+          },
+          "403": {
+            "description": "Não autorizado"
           },
           "404": {
             "description": "Not Found"
@@ -471,7 +471,7 @@
                 },
                 "cep": {
                   "type": "string",
-                  "example": "12345-678"
+                  "example": "01001-00"
                 },
                 "endereco": {
                   "type": "string",
@@ -479,7 +479,7 @@
                 },
                 "email": {
                   "type": "string",
-                  "example": "usuario@email.com"
+                  "example": "ana@email.com"
                 },
                 "senha": {
                   "type": "string",
@@ -503,7 +503,7 @@
             "description": "OK"
           },
           "403": {
-            "description": "Forbidden"
+            "description": "Não autorizado"
           },
           "404": {
             "description": "Not Found"

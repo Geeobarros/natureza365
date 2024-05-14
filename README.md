@@ -49,31 +49,38 @@ Interface gráfica; inserção de fotografias; possiblitar compartilhamento em o
 1. `npm run swagger`
 2. Acessar a interface no `locahost:3333/docs/`
 
+<img src='./assets/img-swagger.png'>interface do swagger: É possível realizar testes do sistema por meio deste
 
+## Rotas
+ ### Usuários
 ## Bibliotecas utilizadas:
 
+### instalar o express
+`npm i express --save`
 ### instalar o sequelize
-`npm install sequelize` 
-
+`npm i sequelize`
 ### instalar o CLI do sequelize
-`npm install -g sequelize-cli` 
+`npm i -g sequelize-cli` 
 ### instalar o driver do PostgreSQL
-`npm install pg` 
+`npm i pg` 
 ### instalar o dotenv
-`npm install dotenv`
+`npm i dotenv`
 ### instalar nodemon
-`npm install nodemon --dev`
+`npm i nodemon --dev`
 ### instalar o JsonWebToken ( JWT )
-`npm install jsonwebtoken`
+`npm i jsonwebtoken`
 ### instalar o axios
-`npm install axios`
+`npm i axios`
 ### instalar o Swagger UI
-`npm install swagger-ui-express`
+`npm i swagger-ui-express`
 ### instalar o Swagger AutoGen para gerar o documento Swagger de forma automatica.
-`npm install swagger-autogen`
+`npm i swagger-autogen`
 
 ## Documentações:
 
-### [Documentação do Sequelize](https://sequelize.org/docs/v6/core-concepts/model-basics/)
-### [Documentação Migrations e Seeders](https://sequelize.org/docs/v6/other-topics/migrations/)
-### Swagger: [Seguir os passo a passo da documentação](https://swagger-autogen.github.io/docs/getting-started/quick-start)
+### [ExpressJS](https://expressjs.com/en/starter/installing.html)
+### [Sequelize](https://sequelize.org/docs/v6/core-concepts/model-basics/)
+### [Migrations e Seeders](https://sequelize.org/docs/v6/other-topics/migrations/)
+### [Swagger](https://swagger-autogen.github.io/docs/getting-started/quick-start)
+### [JWT - JSON WEB TOKEN](https://www.npmjs.com/package/jsonwebtoken)
+
