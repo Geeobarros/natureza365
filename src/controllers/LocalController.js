@@ -60,13 +60,14 @@ class LocalController {
       * #swagger.tags = ['Local'].
       * description: 'Lista os locais',
       * #swagger.responses[200] = {description: "OK"}
+      * * #swagger.responses[403] = {description: "Não autorizado"} 
       * #swagger.responses[500] = {description: "Erro no servidor"}
     */
     try {
       const usuario_id = req.usuario_id;
 
       if (!req.usuario_id) {
-        return res.status(401).json({ mensagem: "Acesso não autorizado" });
+        return res.status(403).json({ mensagem: "Acesso não autorizado" });
       }
 
       const locais = await Local.findAll({
@@ -83,6 +84,7 @@ class LocalController {
       /*  
       *  #swagger.tags = ['Local'].
         * #swagger.responses[200] = {description: "OK"}
+        * * #swagger.responses[403] = {description: "Não autorizado"} 
         * #swagger.responses[404] = {description: "Local não encontrado"}
         * #swagger.responses[500] = {description: "Erro no servidor"}
     */

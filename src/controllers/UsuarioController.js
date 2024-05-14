@@ -15,9 +15,9 @@ class UsuarioController {
                     $data_nascimento: '1996-12-15',
                     $sexo: 'Feminino',
                     $cpf:  '123.456.789-10',
-                    $cep: '12345-678',
+                    $cep: '01001-000',
                     endereco: " ",
-                    $email: 'usuario@email.com',
+                    $email: 'ana@email.com',
                     $senha: "123456"               
                 }
         }
@@ -87,11 +87,12 @@ class UsuarioController {
   }
 
   async listar(req, res) {
+  
     /**
      * #swagger.tags = ['Usuario'].
      * description: 'Lista os usuários',
      * #swagger.responses[200] = {description: "OK"}
-     * #swagger.responses[20] = {description: "Não autorizado"} 
+     * #swagger.responses[403] = {description: "Não autorizado"} 
      * #swagger.responses[500] = {description: "Algo inesperado aconteceu"}
     */
     const usuario = await Usuario.findAll();
@@ -109,13 +110,14 @@ class UsuarioController {
                     $data_nascimento: '1996-12-15',
                     $sexo: 'Feminino',
                     $cpf:  '123.456.789-10',
-                    $cep: '12345-678',
+                    $cep: '01001-00',
                     endereco: " ",
-                    $email: 'usuario@email.com',
+                    $email: 'ana@email.com',
                     $senha: "123456"               
                 }
         }
      * #swagger.responses[200] = {description: "OK"}
+    * #swagger.responses[403] = {description: "Não autorizado"}
      *  swagger.responses[404] = {description: "Usuário não encontrado"}
      * #swagger.responses[500] = {description: "Algo inesperado aconteceu"}
                        
@@ -180,7 +182,6 @@ class UsuarioController {
 
       return res.status(204).json({ messagem: "O Usuário foi deletado" });
     } catch (error) {
-      console.error("Erro ao excluir usuário:", error);
       res.status(500).json({
         mensagem:
           "Algo inesperado aconteceu: Não foi possível deletar o usuário",
