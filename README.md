@@ -1,45 +1,79 @@
-# natureza365
+# Projeto - Natureza365 (Cite Natureza 🌱)
 
 O Natureza365 é uma plataforma que permite aos usuários explorar e contribuir para a preservação da natureza, fornecendo acesso a informações sobre áreas naturais, trilhas, parques ecológicos, reservas ambientais e outros locais de interesse para os amantes da natureza. 
 
-## 🛠️ Abrir e rodar o projeto 
+## Problemas que resolve
 
-### Na primeira vez é necessário instalar as dependencias:
-npm install
-### Se for em ambiente local:
-npm install --dev
-### Utilizar o .env_example para configurar o .env para executar no ambiente local
-cp .env_example .env
+O natureza fornece aos seus usuários o exato local para se ir, por conta de além da localidade, o uso das coordenadas auxilia o melhor posicionamento da região desejada, ainda mais por se tratar de locais, muitas vezes afastadas.
 
-## Para rodar o repositório em ambiente local
-nodemon ./src/index.js
+## Melhorias que possa a ter
 
-## Trabalhando com migrations:
+Interface gráfica; inserção de fotografias; possiblitar compartilhamento em outras plataformas; espaço para usuários compartilharem as experiências como dificuldade de chegar, perigos que possa ter na região, dicas de melhorias; separação do sistema por região (melhora na busca de locais), parceria com guias (para se ter melhor entendimento e locomoção), habilitar outras línguas para estrageiros poderem também ter um melhor acesso e dicas para se ter dicas de preservação e conscientização de cuidados com o meio ambiente e os animais que lá vivem(principalmente para evitar lixos, má interação e alimentação irregular com animais silvestres).
+
+## Rodar o repositório:
+
+### 🔧 Instalar as dependencias:
+1. `npm install`
+2. Em ambiente local: `npm install --dev`
+3. `cp .env_example .env`
+
+### Para rodar o repositório em ambiente local
+`npm run start`
+
+## Migrations
+
 ### Criar uma migration
-sequelize migration:generate --name criar_tabela
-npx sequelize-cli migration:generate --name criar_tabela
+`sequelize migration:generate --name tabela-usuarios`
 
-### Rodar uma migration. Opções:
-Opção nº 1: sequelize db:migrate
-Opção nº 2: npx sequelize db:migrate
+### Rodar uma migration
+`sequelize db:migrate`
 
 ### Reverter a última migration:
-sequelize-cli db:migrate:undo
-npx sequelize-cli db:migrate:undo
+`sequelize-cli db:migrate:undo`
 
-### Documentação do Sequelize:
-https://sequelize.org/docs/v6/core-concepts/model-basics/
+## Trabalhando com Seeders
+
+### Criar um seeders 
+`sequelize seed:generate --name seeders-usuarios`
+
+### Criar valores iniciais no banco de dados:
+`sequelize db:seed:all`
+
+### Reverter o último seed:
+`sequelize db:seed:undo`
+
+## Trabalhando com Documentação:
+
+### Gerar o documento do Swagger.json usando o AutoGen
+
+1. `npm run swagger`
+2. Acessar a interface no `locahost:3333/docs/`
+
 
 ## Bibliotecas utilizadas:
-### instalar o sequelize
-npm install sequelize
 
-### instalar o driver do PostgreSQL
-npm install pg
+### instalar o sequelize
+`npm install sequelize` 
 
 ### instalar o CLI do sequelize
-npm install -g sequelize-cli
-
+`npm install -g sequelize-cli` 
+### instalar o driver do PostgreSQL
+`npm install pg` 
 ### instalar o dotenv
-npm install dotenv
+`npm install dotenv`
+### instalar nodemon
+`npm install nodemon --dev`
+### instalar o JsonWebToken ( JWT )
+`npm install jsonwebtoken`
+### instalar o axios
+`npm install axios`
+### instalar o Swagger UI
+`npm install swagger-ui-express`
+### instalar o Swagger AutoGen para gerar o documento Swagger de forma automatica.
+`npm install swagger-autogen`
 
+## Documentações:
+
+### [Documentação do Sequelize](https://sequelize.org/docs/v6/core-concepts/model-basics/)
+### [Documentação Migrations e Seeders](https://sequelize.org/docs/v6/other-topics/migrations/)
+### Swagger: [Seguir os passo a passo da documentação](https://swagger-autogen.github.io/docs/getting-started/quick-start)

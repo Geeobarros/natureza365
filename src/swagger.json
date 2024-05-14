@@ -405,9 +405,22 @@
           "Usuario"
         ],
         "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "type": "string"
+          }
+        ],
         "responses": {
+          "20": {
+            "description": "Não autorizado"
+          },
           "200": {
             "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
           },
           "500": {
             "description": "Algo inesperado aconteceu"

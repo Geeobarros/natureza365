@@ -91,6 +91,7 @@ class UsuarioController {
      * #swagger.tags = ['Usuario'].
      * description: 'Lista os usuários',
      * #swagger.responses[200] = {description: "OK"}
+     * #swagger.responses[20] = {description: "Não autorizado"} 
      * #swagger.responses[500] = {description: "Algo inesperado aconteceu"}
     */
     const usuario = await Usuario.findAll();
@@ -157,7 +158,7 @@ class UsuarioController {
       const usuario_id = req.usuario_id; // JWT
       const id = req.params.id;
 
-      const usuario = await Usuario.findByPk(usuario_id);
+      const usuario = await Usuario.findByPk(id);
       if (!usuario) {
         return res.status(404).json({ mensagem: "Usuário não encontrado" });
       }

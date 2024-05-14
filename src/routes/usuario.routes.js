@@ -5,7 +5,7 @@ const usuarioRoutes = new Router();
 
 usuarioRoutes.post('/', UsuarioController.cadastrar);
 
-usuarioRoutes.get("/", UsuarioController.listar);
+usuarioRoutes.get("/", auth, UsuarioController.listar);
 
 usuarioRoutes.put('/:id', auth, UsuarioController.atualizar);
 
