@@ -12,7 +12,7 @@ const doc = {
             type: 'apikey',
             //organização das rotas para o swagger
             in: 'header', // can be 'header', 'query' or 'cookie'
-            name: 'authorization', // name of the header, query parameter or cookie description: 'Token de Autenticação'
+            name: 'Authorization', // name of the header, query parameter or cookie description: 'Token de Autenticação'
         }
 
         }
