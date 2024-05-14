@@ -14,7 +14,7 @@
     "apiKeyAuth": {
       "type": "apikey",
       "in": "header",
-      "name": "authorization"
+      "name": "Authorization"
     }
   },
   "paths": {
