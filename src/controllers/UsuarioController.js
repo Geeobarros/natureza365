@@ -6,7 +6,7 @@ const { error } = require("console");
 class UsuarioController {
   async cadastrar(req, res) {
   /**
-   * #swagger.tags = ['Usuario'].
+   * #swagger.tags = ['Login ou cadastrar usuário'].
             #swagger.parameters['body'] = {                
                 in: 'body',
                 description: 'Cadastra um novo usuário',
