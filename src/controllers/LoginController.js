@@ -5,7 +5,7 @@ const Usuario = require("../models/Usuario")
 class LoginController{ 
     async Login(req, res) {
         /*  
-          #swagger.tags = ['LOGIN'].
+          #swagger.tags = ['Login ou cadastrar usuário'].
             #swagger.parameters['body'] = {
                       in: 'body',
                       description: 'Realiza o login do usuário',

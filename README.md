@@ -10,6 +10,10 @@ O natureza fornece aos seus usuários o exato local para se ir, por conta de al�
 
 Interface gráfica; inserção de fotografias; possiblitar compartilhamento em outras plataformas; espaço para usuários compartilharem as experiências como dificuldade de chegar, perigos que possa ter na região, dicas de melhorias; separação do sistema por região (melhora na busca de locais), parceria com guias (para se ter melhor entendimento e locomoção), habilitar outras línguas para estrageiros poderem também ter um melhor acesso e dicas para se ter dicas de preservação e conscientização de cuidados com o meio ambiente e os animais que lá vivem(principalmente para evitar lixos, má interação e alimentação irregular com animais silvestres).
 
+## Tecnologias utilizadas
+
+O sistema foi desenvolvido utilizando Node, Express, PostgreSQL(banco de dados relacional) e Sequelize.
+
 ## Rodar o repositório:
 
 ### 🔧 Instalar as dependencias:
@@ -51,8 +55,6 @@ Interface gráfica; inserção de fotografias; possiblitar compartilhamento em o
 
 <img src='./assets/img-swagger.png'>interface do swagger: É possível realizar testes do sistema por meio deste
 
-## Rotas
- ### Usuários
 ## Bibliotecas utilizadas:
 
 ### instalar o express
@@ -84,3 +86,4 @@ Interface gráfica; inserção de fotografias; possiblitar compartilhamento em o
 ### [Swagger](https://swagger-autogen.github.io/docs/getting-started/quick-start)
 ### [JWT - JSON WEB TOKEN](https://www.npmjs.com/package/jsonwebtoken)
 
+## Feito por: Geovanna Barros

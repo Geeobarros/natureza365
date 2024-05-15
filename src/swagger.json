@@ -289,7 +289,7 @@
     "/login/": {
       "post": {
         "tags": [
-          "LOGIN"
+          "Login ou cadastrar usuário"
         ],
         "description": "",
         "parameters": [
@@ -332,7 +332,7 @@
     "/usuario/": {
       "post": {
         "tags": [
-          "Usuario"
+          "Login ou cadastrar usuário"
         ],
         "description": "",
         "parameters": [
