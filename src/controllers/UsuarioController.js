@@ -86,19 +86,6 @@ class UsuarioController {
     }
   }
 
-  async listar(req, res) {
-  
-    /**
-     * #swagger.tags = ['Usuario'].
-     * description: 'Lista os usuários',
-     * #swagger.responses[200] = {description: "OK"}
-     * #swagger.responses[403] = {description: "Não autorizado"} 
-     * #swagger.responses[500] = {description: "Algo inesperado aconteceu"}
-    */
-    const usuario = await Usuario.findAll();
-    res.json({ usuario });
-  }
-
   async atualizar(req, res) {
     /**
      *     #swagger.tags = ['Usuario'].
