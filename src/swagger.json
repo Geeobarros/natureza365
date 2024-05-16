@@ -399,33 +399,6 @@
             "description": "Erro no servidor"
           }
         }
-      },
-      "get": {
-        "tags": [
-          "Usuario"
-        ],
-        "description": "",
-        "parameters": [
-          {
-            "name": "authorization",
-            "in": "header",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "403": {
-            "description": "Não autorizado"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Algo inesperado aconteceu"
-          }
-        }
       }
     },
     "/usuario/{id}": {
